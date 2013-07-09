@@ -27,3 +27,5 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 end
+
+REDIS_TEST =  Sidekiq::RedisConnection.create(:url => "redis://localhost/15", :namespace => 'SidekiqNotifier')

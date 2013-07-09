@@ -24,9 +24,12 @@ describe "Middleware" do
   end
 
   context "when running job" do
-		before{
+		before do
   		$invocation = 0
-  	}
+      @boss = mock()
+      @processor = ::Sidekiq::Processor.new(@boss)
+      Sidekiq.redis = REDIS_TEST
+  	end
 
   	context "when exception raised" do
   		it_behaves_like "recorded exception" 

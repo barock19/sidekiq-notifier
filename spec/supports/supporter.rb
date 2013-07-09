@@ -15,6 +15,9 @@ end
 
 #****************** SHARED EXAMPLE ******************
 shared_examples "recorded exception" do
+	it "must be invocated" do
+		$invocation.should > 0 
+	end
 end
 
 shared_examples "unrecorded exception" do
